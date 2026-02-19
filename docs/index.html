@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Claude Code Setup</title>
+  <title>My Codex Setup</title>
   <style>
     body {
       font-family: Georgia, 'Times New Roman', serif;
@@ -162,14 +162,14 @@
 </head>
 <body>
 
-  <h1>My Claude Code Setup</h1>
+  <h1>My Codex Setup</h1>
   <div class="byline">Pedro H. C. Sant'Anna &middot; Emory University</div>
 
   <div class="wip">
-    <strong>Work in progress.</strong> This summarizes how I use Claude Code for academic work &mdash; lecture slides, R scripts, Beamer-to-Quarto pipelines. I keep learning and updating these files. Sharing what I've figured out so far with friends and colleagues.
+    <strong>Work in progress.</strong> This summarizes how I use Codex for academic work &mdash; lecture slides, R scripts, Beamer-to-Quarto pipelines. I keep learning and updating these files. Sharing what I've figured out so far with friends and colleagues.
   </div>
 
-  <p>A starter kit for academics using <a href="https://code.claude.com/docs/en/overview">Claude Code</a> with LaTeX/Beamer, R, and Quarto. You describe what you want; Claude plans the approach, runs specialized agents, fixes issues, verifies quality, and presents results &mdash; like a contractor who handles the entire job. Extracted from a PhD course I developed (Econ 730 at Emory, 6 lectures, 800+ slides).</p>
+  <p>A starter kit for academics using <a href="https://developers.openai.com/codex/">Codex</a> with LaTeX/Beamer, R, and Quarto. You describe what you want; Codex plans the approach, runs specialized agents, fixes issues, verifies quality, and presents results &mdash; like a contractor who handles the entire job. Extracted from a PhD course I developed (Econ 730 at Emory, 6 lectures, 800+ slides).</p>
 
   <p>
     <a class="guide-btn" href="workflow-guide.html">Read the full guide</a>
@@ -178,7 +178,7 @@
   <h2>What's in the template</h2>
 
   <ul class="overview-list">
-    <li><strong>Contractor mode orchestrator</strong> <span class="desc">&mdash; you describe the task; Claude autonomously plans, implements, reviews with agents, fixes issues, and re-verifies until quality gates pass</span></li>
+    <li><strong>Contractor mode orchestrator</strong> <span class="desc">&mdash; you describe the task; Codex autonomously plans, implements, reviews with agents, fixes issues, and re-verifies until quality gates pass</span></li>
     <li><strong>Beamer &rarr; Quarto pipeline</strong> <span class="desc">&mdash; 11-phase translation with TikZ-to-SVG and ggplot-to-plotly conversion</span></li>
     <li><strong>10 specialized agents</strong> <span class="desc">&mdash; proofreader, slide auditor, pedagogy reviewer, R reviewer, TikZ critic, domain reviewer, adversarial QA pair, translator, verifier</span></li>
     <li><strong>Adversarial critic-fixer loop</strong> <span class="desc">&mdash; two agents that check each other's work across up to 5 rounds &mdash; the critic can't fix, the fixer can't approve</span></li>
@@ -188,16 +188,16 @@
     <li><strong>Smart hooks</strong> <span class="desc">&mdash; macOS desktop notifications, file protection for bibliography and settings, pre-compaction context snapshots to session logs</span></li>
     <li><strong>Plan-first workflow with continuous learning</strong> <span class="desc">&mdash; non-trivial tasks start in plan mode; <code>[LEARN:tag]</code> corrections persist in MEMORY.md across sessions; plans survive context compression</span></li>
     <li><strong>Research exploration workflow</strong> <span class="desc">&mdash; structured <code>explorations/</code> sandbox with fast-track prototyping (60/100 threshold), simplified orchestrator for R/research, and merge-only quality reporting</span></li>
-    <li><strong>Automated session log enforcement</strong> <span class="desc">&mdash; a lightweight Stop hook reminds Claude to keep session logs current; Beamer-Quarto sync enforced via auto-loaded rules</span></li>
+    <li><strong>Automated session log enforcement</strong> <span class="desc">&mdash; a lightweight Stop hook reminds Codex to keep session logs current; Beamer-Quarto sync enforced via auto-loaded rules</span></li>
   </ul>
 
   <h2>Getting started</h2>
 
 <pre># Fork this repo on GitHub, then:
-git clone https://github.com/YOUR_USERNAME/claude-code-my-workflow.git my-project
+git clone https://github.com/YOUR_USERNAME/codex-code-my-workflow.git my-project
 cd my-project</pre>
 
-  <p>Then start Claude Code and paste the <a href="workflow-guide.html#sec-first-session">starter prompt</a> from the guide. Describe your project in 2&ndash;3 sentences and Claude will read all the configuration files, fill in the placeholders, and adapt the workflow to your use case.</p>
+  <p>Then start Codex and paste the <a href="workflow-guide.html#sec-first-session">starter prompt</a> from the guide. Describe your project in 2&ndash;3 sentences and Codex will read all the configuration files, fill in the placeholders, and adapt the workflow to your use case.</p>
 
   <p>The <a href="workflow-guide.html">full guide</a> walks through everything: setup, agents, quality gates, workflow patterns, and customization.</p>
 
@@ -209,7 +209,7 @@ cd my-project</pre>
 
   <h2>Source</h2>
 
-  <p>Everything is on GitHub: <a href="https://github.com/pedrohcgs/claude-code-my-workflow">pedrohcgs/claude-code-my-workflow</a></p>
+  <p>Everything is on GitHub: <a href="https://github.com/pedrohcgs/codex-code-my-workflow">pedrohcgs/codex-code-my-workflow</a></p>
 
   <div class="footer">
     MIT License. Use freely for teaching, research, or any academic purpose.

@@ -4,13 +4,13 @@
 
 ## Objective
 
-Restructure the entire Claude Code workflow configuration to follow best practices: reduce always-on context from ~1,400 lines to ~220 lines, path-scope situational rules, eliminate duplication, and make the repo approachable for social scientists ramping up on Claude Code.
+Restructure the entire Codex workflow configuration to follow best practices: reduce always-on context from ~1,400 lines to ~220 lines, path-scope situational rules, eliminate duplication, and make the repo approachable for social scientists ramping up on Codex.
 
 ## Changes Made
 
 | File | Change | Reason |
 |------|--------|--------|
-| `CLAUDE.md` | Rewritten from 424 → 119 lines | Constitution-style: principles, commands, tables only |
+| `AGENTS.md` | Rewritten from 424 → 119 lines | Constitution-style: principles, commands, tables only |
 | `plan-first-workflow.md` | Trimmed 150 → 37 lines | Kept protocol + recovery, removed obvious explanations |
 | `orchestrator-protocol.md` | Trimmed 200 → 42 lines | Kept the loop + limits, removed agent selection table |
 | `session-logging.md` | Trimmed 120 → 23 lines | Kept 3 triggers, moved template to templates/ |
@@ -48,9 +48,9 @@ Restructure the entire Claude Code workflow configuration to follow best practic
 - pdf-processing.md had duplicated quick reference section — fixed
 
 ### Round 2 (deep verification)
-- CLAUDE.md `quality_score.py` reference was wrongly removed (it's a real 28KB script) — restored
+- AGENTS.md `quality_score.py` reference was wrongly removed (it's a real 28KB script) — restored
 - Guide Setup "Test 3" was wrongly changed to `/deploy` — restored to `quality_score.py`
-- Guide appendix hooks table had wrong paths (`scripts/` instead of `.claude/hooks/`) — fixed
+- Guide appendix hooks table had wrong paths (`scripts/` instead of `.codex/hooks/`) — fixed
 - Guide multi-model strategy table claimed agents use `opus`/`sonnet` but all use `inherit` — rewritten to show as recommendation, not current state
 - Guide appendix skills table was missing 5 research skills — added
 - Guide appendix hooks table only had 1 of 4 hooks — completed
@@ -60,7 +60,7 @@ Restructure the entire Claude Code workflow configuration to follow best practic
 
 | Check | Result | Status |
 |-------|--------|--------|
-| CLAUDE.md under 150 lines | 119 lines | PASS |
+| AGENTS.md under 150 lines | 119 lines | PASS |
 | Always-on rules under 350 lines | 102 lines | PASS |
 | All situational rules have paths: | 14 path-scoped, 3 always-on | PASS |
 | Templates in templates/ | 4 files | PASS |
@@ -70,9 +70,9 @@ Restructure the entire Claude Code workflow configuration to follow best practic
 
 ### Round 3 (systematic disk verification — 4 parallel agents)
 
-Launched 4 verification agents in parallel to cross-check every claim in CLAUDE.md, README.md, guide, and rule files against actual files on disk.
+Launched 4 verification agents in parallel to cross-check every claim in AGENTS.md, README.md, guide, and rule files against actual files on disk.
 
-**CLAUDE.md:** All 19 skills, 10 agents, folder structure, quality_score.py, sync_to_docs.sh — all verified accurate. No issues.
+**AGENTS.md:** All 19 skills, 10 agents, folder structure, quality_score.py, sync_to_docs.sh — all verified accurate. No issues.
 
 **README.md:** 6 rules had simplified/inaccurate "Triggers On" values:
 - `verification-protocol`: said `.R` but actual is `docs/` — fixed
@@ -87,7 +87,7 @@ Launched 4 verification agents in parallel to cross-check every claim in CLAUDE.
 **Rule files:** All 17 files verified. 3 always-on (no `paths:` by design), 14 path-scoped (all have correct `paths:` frontmatter). Templates directory confirmed at `templates/` with 4 files. No critical issues.
 
 **False alarms dismissed:**
-- Agent flagged "missing templates" — was looking in `.claude/templates/` instead of `templates/` at repo root
+- Agent flagged "missing templates" — was looking in `.codex/templates/` instead of `templates/` at repo root
 - Agent flagged plan-first-workflow.md and session-logging.md as "missing YAML frontmatter" — these are always-on by design (no `paths:` needed)
 - Agent flagged content overlap between orchestrator variants and exploration rules — these are intentional complementary files, not duplication
 
@@ -95,31 +95,31 @@ Guide re-rendered and deployed to docs/ after fixes.
 
 ### Round 4 (adversarial review — 4 agents)
 
-Launched 4 adversarial agents: guide accuracy, README first impression, CLAUDE.md template usability, cross-document consistency.
+Launched 4 adversarial agents: guide accuracy, README first impression, AGENTS.md template usability, cross-document consistency.
 
 **Real issues found and fixed:**
 
 - `docs/index.html` said "16 auto-loaded rules" — changed to "17 context-aware rules"
 - README guide section list (lines 175-182) referenced nonexistent section names ("The Agent Ecosystem", "Quality Gates & Verification") — updated to match actual guide headings
 
-**Added:** "Your First Session" starter prompt section to the guide (Section 3, after setup tests). Provides a copy-paste prompt for newcomers — Claude reads all config files and adapts them to the user's project.
+**Added:** "Your First Session" starter prompt section to the guide (Section 3, after setup tests). Provides a copy-paste prompt for newcomers — Codex reads all config files and adapts them to the user's project.
 
 **False alarms dismissed (14 total):**
 
-- "EnterPlanMode doesn't exist" — it IS a real Claude Code tool
+- "EnterPlanMode doesn't exist" — it IS a real Codex tool
 - "Just do it mode not implemented" — works via natural language; orchestrator rule handles it
-- "Skills invocation syntax missing" — `/skill-name` is basic Claude Code usage
+- "Skills invocation syntax missing" — `/skill-name` is basic Codex usage
 - "ggplot-to-plotly overselling" — verified as real feature in translate-to-quarto skill
-- "Only 1 hook confirmed" — all 4 configured in settings.json
-- "CLAUDE.md skill count says 20" — agent miscounted; table has exactly 19 rows
+- "Only 1 hook confirmed" — all 4 configured in Codex project settings
+- "AGENTS.md skill count says 20" — agent miscounted; table has exactly 19 rows
 - "Lecture naming inconsistency" — intentional convention difference (Beamer vs Quarto)
 - "Beamer environments don't exist" — template examples with CUSTOMIZE comment
 - "domain-reviewer is aspirational" — explicitly labeled as template agent
-- "Missing orchestrator decision tree" — Claude chooses based on path-scoped rule loading
+- "Missing orchestrator decision tree" — Codex chooses based on path-scoped rule loading
 - "Quality reports only at merge" — not a contradiction; verification happens every task, reports at merge
-- "Nested templates confusion" — the starter prompt IS designed to have Claude fill in CLAUDE.md
-- "Repo name confusion" — README correctly uses `claude-code-my-workflow`
-- "CLAUDE.md too terse" — by design; guide is the comprehensive reference
+- "Nested templates confusion" — the starter prompt IS designed to have Codex fill in AGENTS.md
+- "Repo name confusion" — README correctly uses `codex-code-my-workflow`
+- "AGENTS.md too terse" — by design; guide is the comprehensive reference
 
 ## Status
 

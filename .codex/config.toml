@@ -1,0 +1,21 @@
+# Codex project configuration (minimal active settings)
+
+model = "gpt-5.3-codex"
+personality = "pragmatic"
+model_provider = "openai"
+model_reasoning_effort = "medium"
+
+approval_policy = "on-request"
+sandbox_mode = "read-only"
+
+web_search = "cached"
+notify = []
+
+[tui]
+notifications = false
+
+[features]
+shell_tool = true
+request_rule = true
+collaboration_modes = true
+powershell_utf8 = true

@@ -1,10 +1,10 @@
-# My Claude Code Setup
+# My Codex Setup
 
-> **Work in progress.** This is not meant to be a polished guide for everyone. It's mostly a summary of how I've been using Claude Code for academic work — creating lecture slides, writing R scripts, managing Beamer-to-Quarto workflows, and so on. I keep learning new things, and as I do, I keep updating these files. This is just a way for me to share what I've figured out with friends and colleagues.
+> **Work in progress.** This is not meant to be a polished guide for everyone. It's mostly a summary of how I've been using Codex for academic work — creating lecture slides, writing R scripts, managing Beamer-to-Quarto workflows, and so on. I keep learning new things, and as I do, I keep updating these files. This is just a way for me to share what I've figured out with friends and colleagues.
 
-**Live site:** [psantanna.com/claude-code-my-workflow](https://psantanna.com/claude-code-my-workflow/)
+**Live site:** [psantanna.com/codex-code-my-workflow](https://psantanna.com/codex-code-my-workflow/)
 
-A ready-to-fork starter kit for academics using [Claude Code](https://code.claude.com/docs/en/overview) with **LaTeX/Beamer + R + Quarto**. You describe what you want; Claude plans the approach, runs specialized agents, fixes issues, verifies quality, and presents results — like a contractor who handles the entire job. Extracted from a production PhD course (6 lectures, 800+ slides).
+A ready-to-fork starter kit for academics using [Codex](https://developers.openai.com/codex/) with **LaTeX/Beamer + R + Quarto**. You describe what you want; Codex plans the approach, runs specialized agents, fixes issues, verifies quality, and presents results — like a contractor who handles the entire job. Extracted from a production PhD course (6 lectures, 800+ slides).
 
 ---
 
@@ -14,19 +14,19 @@ A ready-to-fork starter kit for academics using [Claude Code](https://code.claud
 
 ```bash
 # Fork this repo on GitHub (click "Fork" on the repo page), then:
-git clone https://github.com/YOUR_USERNAME/claude-code-my-workflow.git my-project
+git clone https://github.com/YOUR_USERNAME/codex-code-my-workflow.git my-project
 cd my-project
 ```
 
 Replace `YOUR_USERNAME` with your GitHub username.
 
-### 2. Start Claude Code and Paste This Prompt
+### 2. Start Codex and Paste This Prompt
 
 ```bash
-claude
+codex
 ```
 
-**Using VS Code?** Open the Claude Code panel instead. Everything works the same — see the [full guide](https://psantanna.com/claude-code-my-workflow/workflow-guide.html#sec-setup) for details.
+**Using VS Code?** Open the Codex panel instead. Everything works the same — see the [full guide](https://psantanna.com/codex-code-my-workflow/workflow-guide.html#sec-setup) for details.
 
 Then paste the following, filling in your project details:
 
@@ -34,15 +34,15 @@ Then paste the following, filling in your project details:
 >
 > I want our collaboration to be structured, precise, and rigorous. When creating visuals, everything must be polished and publication-ready.
 >
-> I've set up the Claude Code academic workflow (forked from `pedrohcgs/claude-code-my-workflow`). The configuration files are already in this repo. Please read them, understand the workflow, and then **update all configuration files to fit my project** — fill in placeholders in `CLAUDE.md`, adjust rules if needed, and propose any customizations specific to my use case.
+> I've set up the Codex academic workflow (forked from `pedrohcgs/codex-code-my-workflow`). The configuration files are already in this repo. Please read them, understand the workflow, and then **update all configuration files to fit my project** — fill in placeholders in `AGENTS.md`, adjust rules if needed, and propose any customizations specific to my use case.
 >
 > After that, use the plan-first workflow for all non-trivial tasks. Once I approve a plan, switch to contractor mode — coordinate everything autonomously and only come back to me when there's ambiguity or a decision to make.
 >
 > Enter plan mode and start by adapting the workflow configuration for this project.
 
-**What this does:** Claude reads all the configuration files, fills in your project name, institution, and preferences, then enters contractor mode — planning, implementing, reviewing, and verifying autonomously. You approve the plan and Claude handles the rest.
+**What this does:** Codex reads all the configuration files, fills in your project name, institution, and preferences, then enters contractor mode — planning, implementing, reviewing, and verifying autonomously. You approve the plan and Codex handles the rest.
 
-**Prefer to configure manually?** See the [full guide](https://psantanna.com/claude-code-my-workflow/workflow-guide.html#sec-setup) for step-by-step manual setup instructions.
+**Prefer to configure manually?** See the [full guide](https://psantanna.com/codex-code-my-workflow/workflow-guide.html#sec-setup) for step-by-step manual setup instructions.
 
 ---
 
@@ -50,7 +50,7 @@ Then paste the following, filling in your project details:
 
 ### Contractor Mode
 
-You describe a task. Claude plans the approach, implements it, runs specialized review agents, fixes issues, re-verifies, and scores against quality gates — all autonomously. You see a summary when the work meets quality standards. Say "just do it" and it auto-commits too.
+You describe a task. Codex plans the approach, implements it, runs specialized review agents, fixes issues, re-verifies, and scores against quality gates — all autonomously. You see a summary when the work meets quality standards. Say "just do it" and it auto-commits too.
 
 ### Specialized Agents
 
@@ -79,13 +79,13 @@ Every file gets a score (0–100). Scores below threshold block the action:
 
 ## The Guide
 
-For a comprehensive walkthrough, read the **[full guide](https://psantanna.com/claude-code-my-workflow/workflow-guide.html)** (or see the [source](guide/workflow-guide.qmd)).
+For a comprehensive walkthrough, read the **[full guide](https://psantanna.com/codex-code-my-workflow/workflow-guide.html)** (or see the [source](guide/workflow-guide.qmd)).
 
 It covers:
 1. **Why This Workflow Exists** — the problem and the vision
-2. **Getting Started** — fork, paste one prompt, and Claude sets up the rest
+2. **Getting Started** — fork, paste one prompt, and Codex sets up the rest
 3. **The System in Action** — specialized agents, adversarial QA, quality scoring
-4. **The Building Blocks** — CLAUDE.md, rules, skills, agents, hooks, memory
+4. **The Building Blocks** — AGENTS.md, rules, skills, agents, hooks, memory
 5. **Workflow Patterns** — lecture creation, translation, replication, multi-agent review, research exploration
 6. **Customizing for Your Domain** — creating your own reviewers and knowledge bases
 
@@ -96,7 +96,7 @@ It covers:
 <details>
 <summary><strong>10 agents, 19 skills, 17 rules, 4 hooks</strong> (click to expand)</summary>
 
-### Agents (`.claude/agents/`)
+### Agents (`.codex/agents/`)
 
 | Agent | What It Does |
 |-------|-------------|
@@ -111,7 +111,7 @@ It covers:
 | `verifier` | End-to-end task completion verification |
 | `domain-reviewer` | **Template** for your field-specific substance reviewer |
 
-### Skills (`.claude/skills/`)
+### Skills (`.codex/skills/`)
 
 | Skill | What It Does |
 |-------|-------------|
@@ -145,11 +145,11 @@ It covers:
 | Enhanced session logging | Structured tables for changes, decisions, verification |
 | Merge-only reporting | Quality reports at merge time only |
 | Math line-length exception | Long lines acceptable for documented formulas |
-| Workflow quick reference | One-page cheat sheet at `.claude/WORKFLOW_QUICK_REF.md` |
+| Workflow quick reference | One-page cheat sheet at `.codex/WORKFLOW_QUICK_REF.md` |
 
-### Rules (`.claude/rules/`)
+### Rules (`.codex/rules/`)
 
-Rules use path-scoped loading: **always-on** rules load every session (~100 lines total); **path-scoped** rules load only when Claude works on matching files. Claude follows ~150 instructions reliably, so less is more.
+Rules use path-scoped loading: **always-on** rules load every session (~100 lines total); **path-scoped** rules load only when Codex works on matching files. Codex follows ~150 instructions reliably, so less is more.
 
 **Always-on** (no `paths:` frontmatter — load every session):
 
@@ -188,39 +188,39 @@ Rules use path-scoped loading: **always-on** rules load every session (~100 line
 
 | Tool | Required For | Install |
 |------|-------------|---------|
-| [Claude Code](https://code.claude.com/docs/en/overview) | Everything | `npm install -g @anthropic-ai/claude-code` |
+| [Codex](https://developers.openai.com/codex/) | Everything | `npm install -g @openai/codex` |
 | XeLaTeX | LaTeX compilation | [TeX Live](https://tug.org/texlive/) or [MacTeX](https://tug.org/mactex/) |
 | [Quarto](https://quarto.org) | Web slides | [quarto.org/docs/get-started](https://quarto.org/docs/get-started/) |
 | R | Figures & analysis | [r-project.org](https://www.r-project.org/) |
 | pdf2svg | TikZ to SVG | `brew install pdf2svg` (macOS) |
 | [gh CLI](https://cli.github.com/) | PR workflow | `brew install gh` (macOS) |
 
-Not all tools are needed — install only what your project uses. Claude Code is the only hard requirement.
+Not all tools are needed — install only what your project uses. Codex is the only hard requirement.
 
 ---
 
 ## Adapting for Your Field
 
-1. **Fill in the knowledge base** (`.claude/rules/knowledge-base-template.md`) with your notation, applications, and design principles
-2. **Customize the domain reviewer** (`.claude/agents/domain-reviewer.md`) with review lenses specific to your field
+1. **Fill in the knowledge base** (`.codex/rules/knowledge-base-template.md`) with your notation, applications, and design principles
+2. **Customize the domain reviewer** (`.codex/agents/domain-reviewer.md`) with review lenses specific to your field
 3. **Update the color palette** in your Quarto theme SCSS file — change the color variables at the top
-4. **Add field-specific R pitfalls** to `.claude/rules/r-code-conventions.md`
-5. **Fill in the lecture mapping** in `.claude/rules/beamer-quarto-sync.md`
-6. **Customize the workflow quick reference** (`.claude/WORKFLOW_QUICK_REF.md`) with your non-negotiables and preferences
+4. **Add field-specific R pitfalls** to `.codex/rules/r-code-conventions.md`
+5. **Fill in the lecture mapping** in `.codex/rules/beamer-quarto-sync.md`
+6. **Customize the workflow quick reference** (`.codex/WORKFLOW_QUICK_REF.md`) with your non-negotiables and preferences
 7. **Set up the exploration folder** (`explorations/`) for experimental work
 
 ---
 
 ## Additional Resources
 
-- [Claude Code Documentation](https://code.claude.com/docs/en/overview)
-- [Writing a Good CLAUDE.md](https://code.claude.com/docs/en/memory) — official guidance on project memory
+- [Codex Documentation](https://developers.openai.com/codex/)
+- [AGENTS.md](AGENTS.md) — project-level instruction conventions used in this repo
 
 ---
 
 ## Origin
 
-This infrastructure was extracted from **Econ 730: Causal Panel Data** at Emory University, developed by Pedro Sant'Anna using Claude Code over 6+ sessions. The course produced 6 complete PhD lecture decks with 800+ slides, interactive Quarto versions with plotly charts, and full R replication packages — all managed through this multi-agent workflow.
+This infrastructure was extracted from **Econ 730: Causal Panel Data** at Emory University, developed by Pedro Sant'Anna using Codex over 6+ sessions. The course produced 6 complete PhD lecture decks with 800+ slides, interactive Quarto versions with plotly charts, and full R replication packages — all managed through this multi-agent workflow.
 
 ---
 

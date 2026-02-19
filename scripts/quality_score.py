@@ -22,7 +22,7 @@ import re
 import json
 
 # ==============================================================================
-# SCORING RUBRIC (from .claude/rules/quality-gates.md)
+# SCORING RUBRIC (from .codex/rules/quality-gates.md)
 # ==============================================================================
 
 QUARTO_RUBRIC = {

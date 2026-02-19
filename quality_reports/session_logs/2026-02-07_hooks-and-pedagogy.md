@@ -6,7 +6,7 @@
 ## Completed
 
 - Added `scripts/log-reminder.py` Stop hook (session log enforcement)
-- Added Beamer-Quarto sync PostToolUse hook in `settings.json`
+- Added Beamer-Quarto sync PostToolUse hook in Codex project settings
 - Created `MEMORY.md` bootstrap for `[LEARN:tag]` persistence
 - Added plan step 1.5 (check institutional memory)
 - Consolidated landing page from 11 to 8 features, reordered for impact
@@ -22,7 +22,7 @@
 
 ## Bug Fix: Log Reminder Infinite Loop
 
-The "no session log" case blocked every response indefinitely. Fixed by adding `no_log_reminded` flag — reminds once, then lets Claude work so it can actually create the log.
+The "no session log" case blocked every response indefinitely. Fixed by adding `no_log_reminded` flag — reminds once, then lets Codex work so it can actually create the log.
 
 ## Hook Audit: Simplification
 
